@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MarkQian0928/node-course2-try1#readme",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "yargs": "^8.0.2"
   }
 }
