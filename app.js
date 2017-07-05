@@ -7,6 +7,8 @@ const _ = require('lodash');
 
 console.log(_.isString(true));
 console.log(_.isString("Mark"));
+var filteredArray = _.uniq(['mark',1,'Mark','mark', 3,11,3,4]);
+console.log(filteredArray);
 
 /*var user = os.userInfo();
 console.log(user);
