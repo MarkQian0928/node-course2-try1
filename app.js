@@ -12,10 +12,17 @@ console.log('Command', command);
 console.log('Yargs', argv);
 
 if (command ==='add'){
+
     var note = notes.addNote(argv.title, argv.body);
+
 }else if(command ==='list'){
-    notes.getAll();
+
+    var note = notes.getAll();
+    console.log(`print, ${note.length} note(s)`);
+    note.forEach((a)=>notes.logNote(a));
+
 }else if(command === 'read'){
+
     var note = notes.getNote(argv.title);
     if (note){//if note is not undefined
         console.log("read success");
@@ -23,10 +30,13 @@ if (command ==='add'){
     }else{
         console.log("note not found");
     }
+
 }else if(command === 'remove'){
+
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? 'note has removed' : 'note not found';
     console.log (message);
-}else{
 
-}
+}else{
+    console.log('command cannot be recognized');
+};
