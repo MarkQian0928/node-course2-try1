@@ -16,7 +16,13 @@ if (command ==='add'){
 }else if(command ==='list'){
     notes.getAll();
 }else if(command === 'read'){
-    notes.getNote(argv.title);
+    var note = notes.getNote(argv.title);
+    if (note){//if note is not undefined
+        console.log("read success");
+        notes.logNote(note);
+    }else{
+        console.log("note not found");
+    }
 }else if(command === 'remove'){
     var noteRemoved = notes.removeNote(argv.title);
     var message = noteRemoved ? 'note has removed' : 'note not found';

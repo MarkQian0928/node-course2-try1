@@ -36,7 +36,9 @@ var getAll =()=>{
 };
 
 var getNote = (title)=>{
-    console.log('Getting note', title);
+    var  notes = fetchNotes();
+    var filterNotes=notes.filter((a)=>a.title ===title);
+    return filterNotes[0];
 };
 
 var removeNote =(title)=>{
@@ -47,9 +49,16 @@ var removeNote =(title)=>{
     return notes.length !== filterNotes.length;//用来证明note有没有没删掉
 }
 
+var logNote = (note)=>{
+    console.log('--');
+    console.log(`title: ${note.title}`);
+    console.log(`body: ${note.body}`);
+}
+
 module.exports ={
     addNote,
     getAll,
     getNote,
-    removeNote
+    removeNote,
+    logNote
 };
