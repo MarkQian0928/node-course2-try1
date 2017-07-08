@@ -2,6 +2,7 @@ console.log('this is node.js');
 
 const fs = require('fs');
 
+//fetchNotes 和 saveNotes的作用是为了reuse code
 var fetchNotes=()=>{
     try{
         var notesString = fs.readFileSync('note-date.json');
@@ -34,7 +35,21 @@ var getAll =()=>{
   console.log('Getting all notes');
 };
 
+var getNote = (title)=>{
+    console.log('Getting note', title);
+};
+
+var removeNote =(title)=>{
+    var notes = fetchNotes();
+    var filterNotes = notes.filter((note)=>note.title!== title);
+    saveNotes(filterNotes);
+
+    return notes.length !== filterNotes.length;//用来证明note有没有没删掉
+}
+
 module.exports ={
     addNote,
-    getAll
+    getAll,
+    getNote,
+    removeNote
 };
