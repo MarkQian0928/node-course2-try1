@@ -6,7 +6,6 @@ var test={
     sayBy (){
          console.log(`Hi, ${this.name}`);
     }
-    
 }
 
 test.sayBy();
