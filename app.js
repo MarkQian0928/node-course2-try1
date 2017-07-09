@@ -5,7 +5,16 @@ const yargs = require('yargs');
 
 const notes = require('./node.js');
 
-const argv = yargs.argv;
+const argv = yargs
+    .command('add', 'add a new note', {
+        title:{
+            describe: 'title of note',
+            demand: true,
+            alias: 't'
+        }
+    })
+    .help()
+    .argv;
 var command = argv._[0];
 console.log('Command', command);
 //console.log('Process', process.argv);
